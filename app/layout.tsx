@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <main className="max-w-6xl mx-auto">
+          <div className="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 bg-clip-text text-transparent drop-shadow-lg animate-pulse pt-10 mb-5">
+            Todo App
+          </div>
+          {children}
+        </main>
+        <Toaster position="top-right" richColors closeButton />
       </body>
     </html>
   );
